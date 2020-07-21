@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import {
-  EmailInput,
-  PasswordInput,
-  ConfirmPasswordInput,
-} from "@/components";
+import EmailInput from "./Inputs/EmailInput";
+import PasswordInput from "./Inputs/PasswordInput";
+import Button from "../Button";
+import ConfirmPasswordInput from "./Inputs/ConfirmPasswordInput";
+import { Link } from "react-router-dom";
 
 const RegistrationForm = () => {
-  const [email, setEmail] = setState("");
-  const [password, setPassword] = setState("");
-  const [confirmPassword, setConfirmPassword] = setState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   return (
     <form onSubmit={handleSubmit}>
