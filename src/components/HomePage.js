@@ -1,38 +1,46 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import BoardList from "./BoardList";
+import AddBoard from "./AddBoard";
 
 const HomePage = () => {
+  const initialBoardList = [];
   const [displayBoardTitleInput, setBoardTitleInput] = useState(false);
+  const [boards, updateBoardList] = useState(initialBoardList);
+  const [boardName, updateBoardName] = useState("");
 
-  if (!displayBoardTitleInput) {
-    return (
-      <div>
-        <h1>My Projects</h1>
+  const handleBoardNameChange = (e) => {
+    updateBoardName(e.target.value);
+  };
 
-        <button onClick={() => setBoardTitleInput(true)}>
-          Add new board
-        </button>
+  const addBoard = () => {
+    const newBoardList = boards.concat({ name: boardName });
+    updateBoardList(newBoardList);
+    updateBoardName("");
+  };
 
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-    );
-  }
-  return (
+  return !displayBoardTitleInput ? (
+    <div>
+      <h1>My Projects</h1>
+
+      <button onClick={() => setBoardTitleInput(true)}>
+        Create new board
+      </button>
+
+      <BoardList boards={boards} />
+    </div>
+  ) : (
     <div>
       <h1>My Projects</h1>
       <button onClick={() => setBoardTitleInput(false)}>
-        Add new board
+        Create new board
       </button>
-      <label htmlFor="new-board-title">Board Title: </label>
-      <input type="text"></input>
-      <label htmlFor="create-board">Create Board</label>
-      <button>create board</button>
+      <AddBoard
+        name={boardName}
+        onBoardNameChange={handleBoardNameChange}
+        onBoardAdd={addBoard}
+      />
 
-      <ul>
-        <li></li>
-      </ul>
+      <BoardList boards={boards} />
     </div>
   );
 };
