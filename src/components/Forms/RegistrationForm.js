@@ -4,6 +4,7 @@ import PasswordInput from "./Inputs/PasswordInput";
 import Button from "../Button";
 import ConfirmPasswordInput from "./Inputs/ConfirmPasswordInput";
 import { Link } from "react-router-dom";
+import authApiService from "../../services/auth-api-service";
 
 const RegistrationForm = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +13,8 @@ const RegistrationForm = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    const newUser = { email_address: email, password: password };
+    authApiService.postUser(newUser);
   }
 
   return (
@@ -23,7 +26,9 @@ const RegistrationForm = () => {
           </div>
           <EmailInput
             value={email}
-            handleChange={(e) => setEmail(e.target.value)}
+            handleChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
         </div>
 
@@ -49,7 +54,13 @@ const RegistrationForm = () => {
           />
         </div>
       </fieldset>
-      <Button theme="registration-button">Create Account</Button>
+      <Button
+        theme="registration-button"
+        type="submit"
+        className="account-registration-button"
+      >
+        Create Account
+      </Button>
       <ul>
         <li>
           <Link to="/login">Login</Link>
