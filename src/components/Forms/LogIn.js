@@ -3,13 +3,28 @@ import EmailInput from "./Inputs/EmailInput";
 import PasswordInput from "./Inputs/PasswordInput";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import authApiService from "../../services/auth-api-service";
+import TokenService from "../../services/token-service";
 
-const RegistrationForm = () => {
+const RegistrationForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    const { email, password } = e.target;
+
+    authApiService
+      .userLogin({ email: email, password: password })
+      .then((res) => {
+        email.value = "";
+        password.value = "";
+        TokenService.saveAuthToken(res.authToken);
+        props.history.push("./HomePage");
+      })
+      .catch((res) => {
+        console.log(res.error);
+      });
   }
 
   return (

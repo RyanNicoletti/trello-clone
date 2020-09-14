@@ -6,15 +6,16 @@ import ConfirmPasswordInput from "./Inputs/ConfirmPasswordInput";
 import { Link } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
 
-const RegistrationForm = () => {
+const RegistrationForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    const newUser = { email_address: email, password: password };
-    authApiService.postUser(newUser);
+    const user = { email: email, password: password };
+    authApiService.postUser(user);
+    props.history.push("./HomePage");
   }
 
   return (
@@ -42,7 +43,7 @@ const RegistrationForm = () => {
           />
         </div>
 
-        <div classname="form-group">
+        <div className="form-group">
           <div>
             <label htmlFor="registration-confirmPassword">
               Confirm Password

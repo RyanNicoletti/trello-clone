@@ -5,10 +5,14 @@ import RegistrationForm from "./components/Forms/RegistrationForm";
 import Login from "./components/Forms/LogIn";
 import HomePage from "./components/HomePage";
 import ProjectBoard from "./components/ProjectBoard";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
+      <header className="app-header">
+        <Header />
+      </header>
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route
