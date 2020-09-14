@@ -11,7 +11,7 @@ const RegistrationForm = (props) => {
   const [password, setPassword] = useState("");
 
   const handleLoginSuccess = (props) => {
-    props.history.push("./homepage");
+    return props.history.push("./homepage");
   };
 
   const handleSubmit = (e) => {
@@ -21,7 +21,6 @@ const RegistrationForm = (props) => {
       .userLogin({ email, password })
       .then((res) => {
         password.value = "";
-        console.log(res);
         TokenService.saveAuthToken(res.authToken);
         handleLoginSuccess();
       })
