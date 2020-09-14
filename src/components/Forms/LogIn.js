@@ -10,22 +10,24 @@ const RegistrationForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(e) {
+  const handleLoginSuccess = () => {
+    props.history.push("./homepage");
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password } = e.target;
 
     authApiService
-      .userLogin({ email: email, password: password })
+      .userLogin({ email, password })
       .then((res) => {
-        email.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-        props.history.push("./HomePage");
+        handleLoginSuccess();
       })
       .catch((res) => {
         console.log(res.error);
       });
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -50,7 +52,9 @@ const RegistrationForm = (props) => {
           />
         </div>
       </fieldset>
-      <Button theme="registration-button">Log in</Button>
+      <Button type="submit" theme="registration-button">
+        Log in
+      </Button>
       <ul>
         <li>
           <Link to="/register-account">Create account</Link>

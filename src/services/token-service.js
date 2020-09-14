@@ -29,6 +29,9 @@ const TokenService = {
     );
     timeoutId = setTimeout(callback, timeUntilExpiry - tenSeconds);
   },
+  clearCallback() {
+    clearTimeout(timeoutId);
+  },
 };
 
 export default TokenService;

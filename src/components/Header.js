@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../services/token-service";
+import IdleService from "../services/idle-service";
 
 const Header = () => {
-  function handleLogout() {
-    return TokenService.clearAuthToken();
-  }
+  const handleLogout = () => {
+    TokenService.clearAuthToken();
+    TokenService.queueCallbackBeforeExpiry();
+    IdleService.registerIdleTimerResets();
+  };
 
   const renderLogoutButton = () => {
     return (
@@ -29,8 +32,8 @@ const Header = () => {
   return (
     <nav className="header">
       {TokenService.hasAuthToken()
-        ? renderLogoutButton
-        : renderLoginButton}
+        ? renderLogoutButton()
+        : renderLoginButton()}
     </nav>
   );
 };
