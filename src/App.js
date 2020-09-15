@@ -2,7 +2,7 @@ import React from "react";
 import LandingPage from "./components/LandingPage";
 import { Route, Switch } from "react-router-dom";
 import RegistrationForm from "./components/Forms/RegistrationForm";
-import Login from "./components/Forms/LogIn";
+import LoginForm from "./components/Forms/LogIn";
 import HomePage from "./components/HomePage";
 import ProjectBoard from "./components/ProjectBoard";
 import Header from "./components/Header";
@@ -20,7 +20,7 @@ function App() {
           path="/register-account"
           component={RegistrationForm}
         />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/login" component={LoginForm} />
         <Route exact path="/homepage" component={HomePage} />
         {/* props.params.id is passed to projectboard params says its a param in url,
          named it id so its .id */}

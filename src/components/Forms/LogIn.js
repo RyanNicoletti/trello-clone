@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
 import TokenService from "../../services/token-service";
 
-const RegistrationForm = (props) => {
+const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setError] = useState(null);
@@ -62,4 +62,4 @@ const RegistrationForm = (props) => {
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
