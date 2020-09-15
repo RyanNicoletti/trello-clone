@@ -9,10 +9,7 @@ import TokenService from "../../services/token-service";
 const RegistrationForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleLoginSuccess = (props) => {
-    return props.history.push("./homepage");
-  };
+  const [errorMessage, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,10 +19,11 @@ const RegistrationForm = (props) => {
       .then((res) => {
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-        handleLoginSuccess();
+        props.history.push("./homepage");
       })
       .catch((res) => {
-        console.log(res.error);
+        setError(res.error);
+        console.log(errorMessage);
       });
   };
 
