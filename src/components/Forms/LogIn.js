@@ -32,7 +32,7 @@ const LoginForm = (props) => {
       <fieldset>
         <div className="form-group">
           <div>
-            <label htmlFor="registration-email">Email</label>
+            <label htmlFor="login-email">Email</label>
           </div>
           <EmailInput
             value={email}
@@ -42,7 +42,7 @@ const LoginForm = (props) => {
 
         <div className="form-group">
           <div>
-            <label htmlFor="registration-password">Password</label>
+            <label htmlFor="login-password">Password</label>
           </div>
           <PasswordInput
             value={password}
@@ -50,7 +50,7 @@ const LoginForm = (props) => {
           />
         </div>
       </fieldset>
-      <Button type="submit" theme="registration-button">
+      <Button type="submit" theme="login-button">
         Log in
       </Button>
       <ul>
