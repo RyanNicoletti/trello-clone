@@ -10,12 +10,19 @@ const RegistrationForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setErrorMessage] = useState({ errorMessage: null });
 
   function handleSubmit(e) {
     e.preventDefault();
     const user = { email: email, password: password };
-    authApiService.postUser(user);
-    props.history.push("./HomePage");
+    authApiService
+      .postUser(user)
+      .then((res) => {
+        props.history.push("/HomePage");
+      })
+      .catch((res) => {
+        setErrorMessage({ errorMessage: res.error });
+      });
   }
 
   return (
@@ -31,6 +38,7 @@ const RegistrationForm = (props) => {
               setEmail(e.target.value);
             }}
           />
+          <div>{error && <span>{error.errorMessage}</span>}</div>
         </div>
 
         <div className="form-group">

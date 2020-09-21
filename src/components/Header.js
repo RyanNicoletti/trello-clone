@@ -6,14 +6,14 @@ import IdleService from "../services/idle-service";
 const Header = () => {
   const handleLogout = () => {
     TokenService.clearAuthToken();
-    TokenService.queueCallbackBeforeExpiry();
-    IdleService.registerIdleTimerResets();
+    TokenService.clearCallback();
+    IdleService.clearCallbackEvents();
   };
 
   const renderLogoutButton = () => {
     return (
       <div className="loggedInHeader">
-        <Link onClick={handleLogout} to="/">
+        <Link onClick={handleLogout()} to="/">
           Logout
         </Link>
       </div>

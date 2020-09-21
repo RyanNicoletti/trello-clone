@@ -16,7 +16,7 @@ const TokenService = {
     window.sessionStorage.removeItem(config.TOKEN_KEY);
   },
   hasAuthToken() {
-    return !!TokenService.getAuthToken();
+    return TokenService.getAuthToken();
   },
   parseJwt(jwt) {
     return jwtDecode(jwt);
