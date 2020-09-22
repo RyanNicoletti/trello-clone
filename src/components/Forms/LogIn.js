@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
 import TokenService from "../../services/token-service";
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });

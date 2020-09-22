@@ -6,6 +6,7 @@ import IdleService from "../services/idle-service";
 const Header = () => {
   const handleLogout = () => {
     TokenService.clearAuthToken();
+    window.location = "/";
     TokenService.clearCallback();
     IdleService.clearCallbackEvents();
   };
