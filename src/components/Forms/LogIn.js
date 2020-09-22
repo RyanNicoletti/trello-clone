@@ -17,7 +17,7 @@ const LoginForm = (props) => {
     authApiService
       .userLogin({ email, password })
       .then((res) => {
-        props.history.push("/homepage");
+        window.location = "/homepage";
         password.value = " ";
         TokenService.saveAuthToken(res.authToken);
       })

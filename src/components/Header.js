@@ -13,7 +13,7 @@ const Header = () => {
   const renderLogoutButton = () => {
     return (
       <div className="loggedInHeader">
-        <Link onClick={handleLogout()} to="/">
+        <Link onClick={handleLogout} to="/">
           Logout
         </Link>
       </div>
