@@ -1,14 +1,31 @@
-import React from "react";
-import Column from "../Column/Column";
+import React, { useState } from "react";
+import boardApiService from "../../services/board-api-service";
 import "./homepage.css";
 
 const HomePage = () => {
+  const [title, setBoardTitle] = useState("");
+  const [error, setErrorMessage] = useState({ errorMessage: null });
+
+  const createBoard = (e) => {
+    e.preventDefault();
+    boardApiService.postBoard(title);
+  };
+
   return (
-    <div className="column-container">
-      <Column title="Open"></Column>
-      <Column title="In Progress"></Column>
-      <Column title="In Review"></Column>
-      <Column title="Complete"></Column>
+    <div>
+      <form className="createBoardForm" onSubmit={createBoard}>
+        <label htmlFor="boardTitle">Board title</label>
+        <input
+          required
+          name="title"
+          type="text"
+          id="boardTitle"
+          value={title}
+          onChange={(e) => setBoardTitle(e.target.value)}
+        ></input>
+        <button type="submit">Create new board</button>
+      </form>
+      <div>{error && <span>{error.errorMessage}</span>}</div>
     </div>
   );
 };
