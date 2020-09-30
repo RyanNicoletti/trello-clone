@@ -18,7 +18,7 @@ const RegistrationForm = (props) => {
     authApiService
       .postUser(user)
       .then((res) => {
-        props.history.push("/HomePage");
+        window.location = "/homepage";
       })
       .catch((res) => {
         setErrorMessage({ errorMessage: res.error });
