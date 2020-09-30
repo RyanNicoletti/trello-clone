@@ -10,11 +10,20 @@ const authApiService = {
         "content-type": "application/json",
       },
       body: JSON.stringify(newUser),
-    }).then((res) => {
-      return !res.ok
-        ? res.json().then((e) => Promise.reject(e))
-        : res.json();
-    });
+    })
+      .then((res) => {
+        return !res.ok
+          ? res.json().then((e) => Promise.reject(e))
+          : res.json();
+      })
+      .then((res) => {
+        TokenService.saveAuthToken(res.authToken);
+        IdleService.registerIdleTimerResets();
+        TokenService.queueCallbackBeforeExpiry(() => {
+          authApiService.postRefreshToken();
+        });
+        return res;
+      });
   },
   userLogin({ email, password }) {
     return fetch(`${config.API_ENDPOINT}/auth/login`, {

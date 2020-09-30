@@ -19,7 +19,7 @@ const LoginForm = () => {
       .then((res) => {
         window.location = "/homepage";
         password.value = " ";
-        TokenService.saveAuthToken(res.authToken);
+        console.log(res);
       })
       .catch((res) => {
         return setErrorMessage({ errorMessage: res.error });
