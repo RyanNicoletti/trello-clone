@@ -55,7 +55,7 @@ function App() {
         />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/homepage" component={HomePage} />
-        <Route exact path={`/boardpage`} component={BoardPage} />
+        <Route path="/boardpage" component={BoardPage} />
       </Switch>
     </div>
   );

@@ -45,10 +45,14 @@ const HomePage = () => {
         <button type="submit">Create new board</button>
       </form>
       <div>{error && <span>{error.errorMessage}</span>}</div>
-      <div>
+      <div className="board-container">
         {boards.map((board) => (
-          <Link to={`/boardpage/${board.id}`} key={board.id}>
-            <div key={board.id}>{board.title}</div>
+          <Link
+            className="project-board"
+            key={board.id}
+            to={`/boardpage/${board.title}`}
+          >
+            <div>{board.title}</div>
           </Link>
         ))}
       </div>
