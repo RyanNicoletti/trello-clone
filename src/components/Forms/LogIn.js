@@ -4,7 +4,6 @@ import PasswordInput from "./Inputs/PasswordInput";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
-import TokenService from "../../services/token-service";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");

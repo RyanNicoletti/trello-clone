@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import boardApiService from "../../services/board-api-service";
 import "./homepage.css";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [title, setBoardTitle] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });
   const [boards, setBoards] = useState([]);
-  useEffect(
-    () =>
-      boardApiService
-        .getAllBoards()
-        .then((usersboards) => setBoards(usersboards)),
-    []
-  );
+
+  useEffect(() => {
+    async function fetchBoardsByUserId() {
+      const usersboards = await boardApiService.getAllBoards();
+      setBoards(usersboards);
+    }
+    fetchBoardsByUserId();
+  }, []);
 
   const createBoard = (e) => {
     e.preventDefault();
@@ -45,7 +47,9 @@ const HomePage = () => {
       <div>{error && <span>{error.errorMessage}</span>}</div>
       <div>
         {boards.map((board) => (
-          <div key={board.id}>{board.title}</div>
+          <Link to={`/boardpage/${board.id}`} key={board.id}>
+            <div key={board.id}>{board.title}</div>
+          </Link>
         ))}
       </div>
     </div>
