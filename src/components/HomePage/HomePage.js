@@ -12,6 +12,7 @@ const HomePage = () => {
     async function fetchBoardsByUserId() {
       const usersboards = await boardApiService.getAllBoards();
       setBoards(usersboards);
+      console.log(usersboards);
     }
     fetchBoardsByUserId();
   }, []);
@@ -50,7 +51,7 @@ const HomePage = () => {
           <Link
             className="project-board"
             key={board.id}
-            to={`/boardpage/${board.title}`}
+            to={`/boardpage/${board.id}`}
           >
             <div>{board.title}</div>
           </Link>
