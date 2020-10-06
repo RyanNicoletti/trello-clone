@@ -25,6 +25,7 @@
   max-height: 100%;
   position: relative;
   white-space: normal;
+  text-decoration: none;
 }
 
 .hide-input {

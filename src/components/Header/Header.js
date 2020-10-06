@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TokenService from "../services/token-service";
-import IdleService from "../services/idle-service";
+import TokenService from "../../services/token-service";
+import IdleService from "../../services/idle-service";
+import "./header.css";
 
 const Header = () => {
   const handleLogout = () => {
@@ -32,9 +33,13 @@ const Header = () => {
 
   return (
     <nav className="header">
-      {TokenService.hasAuthToken()
-        ? renderLogoutButton()
-        : renderLoginButton()}
+      <div className="left"></div>
+      <div className="center">Trello</div>
+      <div className="right">
+        {TokenService.hasAuthToken()
+          ? renderLogoutButton()
+          : renderLoginButton()}
+      </div>
     </nav>
   );
 };

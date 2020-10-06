@@ -1,0 +1,24 @@
+.header {
+  background: #046aa7;
+  height: 30px;
+  color: #ffffff;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > div {
+  background: #81a9cb;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.header :nth-child(1) {
+  padding: 0;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}

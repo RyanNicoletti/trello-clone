@@ -47,7 +47,9 @@ const BoardPage = () => {
       </form>
       <div>{error && <span>{error.errorMessage}</span>}</div>
       <div className="list-container">
-        <TaskList taskLists={lists} />
+        {lists.map((list) => (
+          <TaskList taskList={list} key={list.id} />
+        ))}
       </div>
     </div>
   );

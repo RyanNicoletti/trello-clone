@@ -31,31 +31,34 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <form className="createBoardForm" onSubmit={createBoard}>
-        <label htmlFor="boardTitle">Board title</label>
-        <input
-          required
-          name="title"
-          type="text"
-          id="boardTitle"
-          value={title}
-          onChange={(e) => setBoardTitle(e.target.value)}
-        ></input>
-        <button type="submit">Create new board</button>
-      </form>
-      <div>{error && <span>{error.errorMessage}</span>}</div>
-      <div className="board-container">
-        {boards.map((board) => (
-          <Link
-            className="project-board"
-            key={board.id}
-            to={`/boardpage/${board.id}`}
-          >
-            <div>{board.title}</div>
-          </Link>
-        ))}
+    <div className="home-component-wrapper">
+      <div className="boards-wrapper">
+        <div className="board-container">
+          {boards.map((board) => (
+            <Link
+              className="project-board"
+              key={board.id}
+              to={`/boardpage/${board.id}`}
+            >
+              <div className="board-title">{board.title}</div>
+            </Link>
+          ))}
+        </div>
+        <form className="createBoardForm" onSubmit={createBoard}>
+          <label htmlFor="boardTitle">Board title</label>
+          <input
+            required
+            name="title"
+            type="text"
+            id="boardTitle"
+            value={title}
+            onChange={(e) => setBoardTitle(e.target.value)}
+          ></input>
+          <button type="submit">Create new board</button>
+        </form>
       </div>
+
+      <div>{error && <span>{error.errorMessage}</span>}</div>
     </div>
   );
 };
