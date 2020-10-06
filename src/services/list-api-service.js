@@ -17,6 +17,16 @@ const listApiService = {
       return console.log(error, "error posting new list");
     }
   },
+  async getAllLists(boardId) {
+    const res = await fetch(`${config.API_ENDPOINT}/lists?id=${boardId}`, {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    });
+    return !res.ok
+      ? res.json().then((e) => Promise.reject(e))
+      : res.json();
+  },
 };
 
 export default listApiService;

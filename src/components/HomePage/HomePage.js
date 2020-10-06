@@ -12,7 +12,6 @@ const HomePage = () => {
     async function fetchBoardsByUserId() {
       const usersboards = await boardApiService.getAllBoards();
       setBoards(usersboards);
-      console.log(usersboards);
     }
     fetchBoardsByUserId();
   }, []);

@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import RegistrationForm from "./components/Forms/RegistrationForm";
 import LoginForm from "./components/Forms/LogIn";
 import HomePage from "./components/HomePage/HomePage";
-import BoardPage from "./components/BoardPage";
+import BoardPage from "./components/BoardPage/BoardPage";
 import Header from "./components/Header";
 import IdleService from "./services/idle-service";
 import TokenService from "./services/token-service";

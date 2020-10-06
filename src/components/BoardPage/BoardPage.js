@@ -1,12 +1,21 @@
-import React, { useState } from "react";
-import listApiService from "../services/list-api-service";
+import React, { useState, useEffect } from "react";
+import listApiService from "../../services/list-api-service";
+import "./boardpage.css";
+import TaskList from "../TaskList/TaskList";
 
 const BoardPage = () => {
   const [listTitle, setListName] = useState("");
   const [lists, setLists] = useState([]);
   const [error, setErrorMessage] = useState({ errorMessage: null });
-
   const boardId = window.location.pathname.split("/").pop();
+
+  useEffect(() => {
+    async function fetchListsByBoardId() {
+      const taskLists = await listApiService.getAllLists(boardId);
+      setLists(taskLists);
+    }
+    fetchListsByBoardId();
+  }, [boardId]);
 
   const createNewList = (e) => {
     e.preventDefault();
@@ -37,11 +46,8 @@ const BoardPage = () => {
         <button type="submit">Add list</button>
       </form>
       <div>{error && <span>{error.errorMessage}</span>}</div>
-
       <div className="list-container">
-        {lists.map((list) => (
-          <div key={list.id}>{list.list_title}</div>
-        ))}
+        <TaskList taskLists={lists} />
       </div>
     </div>
   );

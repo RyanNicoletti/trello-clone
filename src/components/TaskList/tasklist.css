@@ -1,0 +1,32 @@
+.list-container {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  margin-bottom: 8px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.task-list {
+  width: 272px;
+  margin: 0 4px;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  background-color: #ebecf0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  position: relative;
+  white-space: normal;
+}
+
+.hide-input {
+  cursor: pointer;
+}
