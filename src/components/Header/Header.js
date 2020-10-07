@@ -25,8 +25,13 @@ const Header = () => {
   const renderLoginButton = () => {
     return (
       <div className="loggedOutHeader">
-        <Link to="/register-account">Create Account</Link>
-        <Link to="/login">Log in</Link>
+        <Link className="createacc" to="/register-account">
+          Create Account
+        </Link>
+
+        <Link className="login" to="/login">
+          Log in
+        </Link>
       </div>
     );
   };

@@ -5,7 +5,8 @@ import "./tasklist.css";
 
 const TaskList = (props) => {
   const [showInput, setInput] = useState(false);
-  const [task, setTaskName] = useState("");
+  const [taskTitle, setTaskTitle] = useState("");
+  const [tasks, setTasks] = useState([]);
   const [error, setErrorMessage] = useState({ errorMessage: null });
 
   const showListTitleInput = () => setInput(true);
@@ -13,9 +14,10 @@ const TaskList = (props) => {
   const hideListTitleInput = () => setInput(false);
 
   const createTask = (e) => {
-    e.preventDefauilt();
+    e.preventDefault();
     taskApiService
-      .postTask(task, props.taskList.id)
+      .postTask(taskTitle, props.taskList.id)
+      .then((newTask) => setTasks((tasks) => [...tasks, newTask]))
 
       .catch((res) => {
         return setErrorMessage({ errorMessage: res.error });
@@ -24,16 +26,21 @@ const TaskList = (props) => {
   return (
     <div className="task-list">
       {props.taskList.list_title}
+      <div className="task-container">
+        {tasks.map((task) => (
+          <div key={task.id}>{task.title}</div>
+        ))}
+      </div>
       {showInput && (
         <div>
           <input
             type="text"
             name="task"
-            value={task}
-            onChange={(e) => setTaskName(e.target.value)}
+            value={taskTitle}
+            onChange={(e) => setTaskTitle(e.target.value)}
             requiredplaceholder="Enter a title for this card..."
           ></input>
-          <button onSubmit={createTask}>Add Card</button>
+          <button onClick={createTask}>Add Card</button>
           <span>
             <ClearIcon
               className="hide-input"

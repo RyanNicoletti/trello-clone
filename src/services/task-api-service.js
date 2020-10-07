@@ -10,7 +10,7 @@ const taskApiService = {
           authorization: `Bearer ${TokenService.getAuthToken()}`,
           "content-type": "application/json",
         },
-        body: JSON.stringify({ title, listId }),
+        body: JSON.stringify({ title, list_id: listId }),
       });
       const task = await res.json();
       return task;
