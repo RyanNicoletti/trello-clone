@@ -1,0 +1,13 @@
+.boardpage-container {
+  position: relative;
+}
+
+.delete-board {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 5px;
+  padding-top: 5px;
+  font-size: small;
+  cursor: pointer;
+}

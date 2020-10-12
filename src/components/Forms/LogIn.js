@@ -17,7 +17,6 @@ const LoginForm = () => {
       .userLogin({ email, password })
       .then((res) => {
         window.location = "/homepage";
-        password.value = " ";
         console.log(res);
       })
       .catch((res) => {

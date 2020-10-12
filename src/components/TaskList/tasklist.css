@@ -31,3 +31,10 @@
 .hide-input {
   cursor: pointer;
 }
+
+.delete-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}

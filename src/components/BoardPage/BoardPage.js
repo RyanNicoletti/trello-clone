@@ -23,20 +23,28 @@ const BoardPage = () => {
       .postList(listTitle, boardId)
       .then((list) => {
         setLists((lists) => [...lists, list]);
+        setListName("");
       })
       .catch((res) => {
         return setErrorMessage({ errorMessage: res.error });
       });
   };
 
+  const deleteBoard = () => {
+    console.log("deleted board");
+  };
+
   return (
-    <div>
+    <div className="boardpage-container">
+      <div className="delete-board" onClick={deleteBoard}>
+        delete board
+      </div>
       <form onSubmit={createNewList}>
-        <label htmlFor="list-title">Add a list: </label>
+        <label htmlFor="listTitle">Add a list: </label>
         <input
-          id="list-title"
+          id="listTitle"
           type="text"
-          name="list-title"
+          name="listTitle"
           value={listTitle}
           onChange={(e) => setListName(e.target.value)}
           required
@@ -48,7 +56,12 @@ const BoardPage = () => {
       <div>{error && <span>{error.errorMessage}</span>}</div>
       <div className="list-container">
         {lists.map((list) => (
-          <TaskList taskList={list} key={list.id} />
+          <TaskList
+            taskList={list}
+            listArray={lists}
+            key={list.id}
+            updateLists={setLists}
+          />
         ))}
       </div>
     </div>

@@ -27,6 +27,25 @@ const listApiService = {
       ? res.json().then((e) => Promise.reject(e))
       : res.json();
   },
+  async deleteList(listId) {
+    try {
+      const res = await fetch(
+        `${config.API_ENDPOINT}/lists/delete?id=${listId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+            authorization: `bearer ${TokenService.getAuthToken()}`,
+          },
+        }
+      );
+      if (res.status === 204) {
+        return Promise.resolve(undefined);
+      }
+    } catch (error) {
+      return console.log(error, "error deleting list");
+    }
+  },
 };
 
 export default listApiService;
