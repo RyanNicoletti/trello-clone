@@ -1,23 +1,41 @@
-.home-component-wrapper {
-  height: calc(100vh - 30px);
-  padding: 20px 20px 0;
-  display: flex;
+* {
+  box-sizing: border-box;
 }
 
 .board-container {
+  padding-top: 70px;
   display: flex;
   flex-wrap: wrap;
+  max-width: 1000px;
   margin: 0 auto;
-  max-width: 1250px;
-  padding: 20px 16px 0;
+  /* padding-right: 500px; */
+  min-width: 500px;
 }
 
-.project-board {
-  margin: 0 2% 2% 0;
-  height: 100px;
-  width: 23.5%;
-  border: solid black;
-  padding-inline-start: 40px;
+.board-container > * {
+  border: 1px solid;
+  border-radius: 3px;
+  width: 194px;
+  height: 96px;
   text-decoration: none;
   color: black;
+  background: rgba(145, 145, 145, 0.212);
+  flex: 0 0 22%;
+  margin: 10px 10px;
+}
+
+.board-card {
+}
+
+.createBoardForm {
+}
+
+.board-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  font-weight: 700;
+  width: 100%;
+  line-height: 20px;
+  padding: 8px;
 }

@@ -3,10 +3,9 @@ import boardApiService from "../../services/board-api-service";
 import "./homepage.css";
 import { Link } from "react-router-dom";
 
-const HomePage = () => {
+const HomePage = ({ setBoards, boards }) => {
   const [title, setBoardTitle] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });
-  const [boards, setBoards] = useState([]);
 
   useEffect(() => {
     async function fetchBoardsByUserId() {
@@ -14,7 +13,7 @@ const HomePage = () => {
       setBoards(usersboards);
     }
     fetchBoardsByUserId();
-  }, []);
+  }, [setBoards]);
 
   const createBoard = (e) => {
     e.preventDefault();
@@ -29,21 +28,20 @@ const HomePage = () => {
         return setErrorMessage({ errorMessage: res.error });
       });
   };
+  console.log(boards);
 
   return (
-    <div className="home-component-wrapper">
-      <div className="boards-wrapper">
-        <div className="board-container">
-          {boards.map((board) => (
-            <Link
-              className="project-board"
-              key={board.id}
-              to={`/boardpage/${board.id}`}
-            >
-              <div className="board-title">{board.title}</div>
-            </Link>
-          ))}
-        </div>
+    <div className="home-page">
+      <div className="board-container">
+        {boards?.map((board) => (
+          <Link
+            className="board-card"
+            key={board.id}
+            to={`/boardpage/${board.id}`}
+          >
+            <p className="board-title">{board.title}</p>
+          </Link>
+        ))}
         <form className="createBoardForm" onSubmit={createBoard}>
           <label htmlFor="boardTitle">Board title</label>
           <input

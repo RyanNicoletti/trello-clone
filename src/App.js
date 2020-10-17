@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import LandingPage from "./components/LandingPage";
 import { Route, Switch } from "react-router-dom";
 import RegistrationForm from "./components/Forms/RegistrationForm";
@@ -9,8 +9,11 @@ import Header from "./components/Header/Header";
 import IdleService from "./services/idle-service";
 import TokenService from "./services/token-service";
 import authApiService from "./services/auth-api-service";
+import NotFoundPage from "./components/notfoundpage/NotFoundPage";
 
-function App() {
+const App = () => {
+  const [boards, setBoards] = useState([]);
+
   const logIdleUserOut = () => {
     TokenService.clearAuthToken();
     TokenService.clearCallback();
@@ -44,11 +47,16 @@ function App() {
           component={RegistrationForm}
         />
         <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/homepage" component={HomePage} />
-        <Route path="/boardpage" component={BoardPage} />
+        <Route exact path="/homepage">
+          <HomePage boards={boards} setBoards={setBoards} />
+        </Route>
+        <Route path="/boardpage/:boardId">
+          <BoardPage boards={boards} setBoards={setBoards} />
+        </Route>
+        <Route exact path="/notfound" component={NotFoundPage} />
       </Switch>
     </div>
   );
-}
+};
 
 export default App;

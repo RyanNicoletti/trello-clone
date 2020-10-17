@@ -4,6 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import taskApiService from "../../services/task-api-service";
 import "./tasklist.css";
 import listApiService from "../../services/list-api-service";
+import TaskCard from "../TaskCard/TaskCard";
 
 const TaskList = (props) => {
   const [showInput, setInput] = useState(false);
@@ -52,15 +53,25 @@ const TaskList = (props) => {
   };
   return (
     <div className="task-list">
+      <div className="flex-delete">
       {props.taskList.list_title}
       <DeleteIcon
         fontSize="small"
         className="delete-list"
         onClick={deleteList}
       ></DeleteIcon>
+        </div>
+     
       <div className="task-container">
         {tasks.map((task) => (
-          <div key={task.id}>{task.title}</div>
+          <TaskCard
+            className="task-card"
+            key={task.id}
+            title={task.title}
+            updateTasks={setTasks}
+            tasksArray={tasks}
+            taskCard={task}
+          />
         ))}
       </div>{" "}
       {showInput && (

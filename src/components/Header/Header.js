@@ -39,7 +39,7 @@ const Header = () => {
   return (
     <nav className="header">
       <div className="left"></div>
-      <div className="center">Trello</div>
+      <div className="center">Trello Clone</div>
       <div className="right">
         {TokenService.hasAuthToken()
           ? renderLogoutButton()

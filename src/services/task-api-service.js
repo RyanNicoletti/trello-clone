@@ -29,6 +29,25 @@ const taskApiService = {
     );
     return res.json();
   },
+  async deleteTask(taskId) {
+    try {
+      const res = await fetch(
+        `${config.API_ENDPOINT}/tasks/delete?id=${taskId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+            authorization: `bearer ${TokenService.getAuthToken()}`,
+          },
+        }
+      );
+      if (res.status === 204) {
+        return Promise.resolve(undefined);
+      }
+    } catch (error) {
+      return console.log(error, "error deleting task");
+    }
+  },
 };
 
 export default taskApiService;

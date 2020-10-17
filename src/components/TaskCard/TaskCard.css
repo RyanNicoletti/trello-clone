@@ -1,0 +1,15 @@
+.card {
+  max-width: 250px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: red solid 1px;
+  position: relative;
+}
+
+.delete-task-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}

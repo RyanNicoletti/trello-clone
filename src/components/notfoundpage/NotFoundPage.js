@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BoardNotFoundPage = () => {
+const NotFoundPage = () => {
   return (
-    <Content className="NotFoundPage">
+    <div className="board-not-found">
       <h2>Page Not Found</h2>
       <p>
-        Board deleted: <Link to={HomePage}>return to homepage</Link>
+        Board deleted: <Link to="/homepage">return to homepage</Link>
       </p>
-    </Content>
+    </div>
   );
 };
 
-export default BoardNotFoundPage;
+export default NotFoundPage;
