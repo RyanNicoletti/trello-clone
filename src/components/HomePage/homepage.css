@@ -24,12 +24,6 @@
   margin: 10px 10px;
 }
 
-.board-card {
-}
-
-.createBoardForm {
-}
-
 .board-title {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -51,29 +51,31 @@ const TaskList = (props) => {
       return res;
     });
   };
+
+  const renderTasks = () => {
+    return tasks.map((task) => (
+      <TaskCard
+        className="card"
+        key={task.id}
+        title={task.title}
+        updateTasks={setTasks}
+        tasksArray={tasks}
+        taskCard={task}
+      />
+    ));
+  };
+
   return (
     <div className="task-list">
       <div className="flex-delete">
-      {props.taskList.list_title}
-      <DeleteIcon
-        fontSize="small"
-        className="delete-list"
-        onClick={deleteList}
-      ></DeleteIcon>
-        </div>
-     
-      <div className="task-container">
-        {tasks.map((task) => (
-          <TaskCard
-            className="task-card"
-            key={task.id}
-            title={task.title}
-            updateTasks={setTasks}
-            tasksArray={tasks}
-            taskCard={task}
-          />
-        ))}
-      </div>{" "}
+        {props.taskList.list_title}
+        <DeleteIcon
+          fontSize="small"
+          className="delete-list"
+          onClick={deleteList}
+        ></DeleteIcon>
+      </div>
+      {renderTasks()}
       {showInput && (
         <form onSubmit={createTask}>
           <input

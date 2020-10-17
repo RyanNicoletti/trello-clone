@@ -3,16 +3,19 @@
 }
 
 .task-list {
-  width: 272px;
-  justify-content: space-between;
-  height: 100%;
-  background-color: #ebecf0;
+  background-color: rgb(235, 236, 240);
   border-radius: 3px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  white-space: normal;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-gap: 10px;
+  height: max-content;
+  padding: 10px;
+}
+.task-card {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+  padding: 10px;
 }
 
 .hide-input {
@@ -22,4 +25,8 @@
 .flex-delete {
   display: flex;
   justify-content: space-between;
+}
+
+.delete-list {
+  cursor: pointer;
 }

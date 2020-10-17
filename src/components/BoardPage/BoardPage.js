@@ -70,12 +70,12 @@ const BoardPage = ({ setBoards, boards }) => {
       <div className="board-header">{board?.title}</div>
       <Link to="/homepage">
         <div className="delete-board" onClick={deleteBoard}>
-          delete board
+          Delete board
         </div>
       </Link>
 
       <div>{error && <span>{error.errorMessage}</span>}</div>
-      <div className="board">
+      <div className="board-lists">
         {renderLists()}
         <form onSubmit={createNewList} className="task-list">
           <label htmlFor="listTitle">Add a list: </label>
