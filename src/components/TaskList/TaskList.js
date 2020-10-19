@@ -96,7 +96,9 @@ const TaskList = (props) => {
         </form>
       )}
       {!showInput ? (
-        <button onClick={showListTitleInput}>Add Card</button>
+        <div class="add-card" onClick={showListTitleInput}>
+          + Add another card
+        </div>
       ) : null}
     </div>
   );

@@ -11,12 +11,6 @@
   height: max-content;
   padding: 10px;
 }
-.task-card {
-  background-color: white;
-  border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
-  padding: 10px;
-}
 
 .hide-input {
   cursor: pointer;
@@ -29,4 +23,15 @@
 
 .delete-list {
   cursor: pointer;
+}
+
+.add-card {
+  margin: 2px 0 1px 0px;
+  padding: 1px 4px;
+  cursor: pointer;
+  color: #5e6c84;
+  border-radius: 2px;
+}
+.add-card:hover {
+  background-color: #dcdee2;
 }
