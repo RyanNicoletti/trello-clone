@@ -1,6 +1,6 @@
 import React from "react";
 
-const ConfirmPasswordInput = ({ value, handleChange }) => {
+const ConfirmPasswordInput = ({ value, handleChange, placeholder }) => {
   return (
     <input
       id="registration-confirm-password"
@@ -8,6 +8,8 @@ const ConfirmPasswordInput = ({ value, handleChange }) => {
       name="confirm-password"
       value={value}
       onChange={handleChange}
+      placeholder={placeholder}
+      className="confirmpw-input"
       required
     />
   );

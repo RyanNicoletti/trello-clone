@@ -15,9 +15,14 @@ const Header = () => {
   const renderLogoutButton = () => {
     return (
       <div className="loggedInHeader">
-        <Link onClick={handleLogout} to="/">
-          Logout
-        </Link>
+        <h1 className="header-middle">
+          <Link to="/homepage">Trello Clone</Link>
+        </h1>
+        <div id="header-right-out" className="header-right">
+          <Link className="logout" onClick={handleLogout} to="/">
+            Log out
+          </Link>
+        </div>
       </div>
     );
   };
@@ -25,26 +30,25 @@ const Header = () => {
   const renderLoginButton = () => {
     return (
       <div className="loggedOutHeader">
-        <Link className="createacc" to="/register-account">
-          Create Account
-        </Link>
+        <h1 className="header-middle">Trello Clone</h1>
+        <div className="header-right">
+          <Link className="createacc" to="/register-account">
+            Create Account
+          </Link>
 
-        <Link className="login" to="/login">
-          Log in
-        </Link>
+          <Link className="login" to="/login">
+            Log in
+          </Link>
+        </div>
       </div>
     );
   };
 
   return (
     <nav className="header">
-      <div className="left"></div>
-      <div className="center">Trello Clone</div>
-      <div className="right">
-        {TokenService.hasAuthToken()
-          ? renderLogoutButton()
-          : renderLoginButton()}
-      </div>
+      {TokenService.hasAuthToken()
+        ? renderLogoutButton()
+        : renderLoginButton()}
     </nav>
   );
 };

@@ -28,7 +28,6 @@ const HomePage = ({ setBoards, boards }) => {
         return setErrorMessage({ errorMessage: res.error });
       });
   };
-  console.log(boards);
 
   return (
     <div className="home-page">

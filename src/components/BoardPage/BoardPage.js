@@ -78,7 +78,6 @@ const BoardPage = ({ setBoards, boards }) => {
       <div className="board-lists">
         {renderLists()}
         <form onSubmit={createNewList} className="task-list">
-          <label htmlFor="listTitle">Add a list: </label>
           <input
             id="listTitle"
             type="text"
@@ -89,7 +88,7 @@ const BoardPage = ({ setBoards, boards }) => {
             autoComplete="off"
             placeholder="Enter list title..."
           ></input>
-          <button type="submit">Add list</button>
+          <button type="submit">Add a list</button>
         </form>
       </div>
     </div>

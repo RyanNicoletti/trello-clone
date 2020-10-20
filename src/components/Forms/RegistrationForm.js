@@ -5,6 +5,7 @@ import Button from "../Button";
 import ConfirmPasswordInput from "./Inputs/ConfirmPasswordInput";
 import { Link } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
+import "./registrationform.css";
 
 const RegistrationForm = (props) => {
   const [email, setEmail] = useState("");
@@ -26,56 +27,48 @@ const RegistrationForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <fieldset>
-        <div className="form-group">
-          <div>
-            <label htmlFor="registration-email">Email</label>
+    <div className="registration-page">
+      <form onSubmit={handleSubmit}>
+        <div className="registration-flex-container">
+          <h1 className="registration-header">Sign up for your account</h1>
+          <div className="form-group">
+            <EmailInput
+              value={email}
+              handleChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeHolder="Enter email"
+            />
+            <div>{error && <span>{error.errorMessage}</span>}</div>
           </div>
-          <EmailInput
-            value={email}
-            handleChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <div>{error && <span>{error.errorMessage}</span>}</div>
-        </div>
 
-        <div className="form-group">
-          <div>
-            <label htmlFor="registration-password">Password</label>
+          <div className="form-group">
+            <PasswordInput
+              value={password}
+              handleChange={(e) => setPassword(e.target.value)}
+              placeholder="Create Password"
+            />
           </div>
-          <PasswordInput
-            value={password}
-            handleChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
 
-        <div className="form-group">
-          <div>
-            <label htmlFor="registration-confirmPassword">
-              Confirm Password
-            </label>
+          <div className="form-group">
+            <ConfirmPasswordInput
+              value={confirmPassword}
+              handleChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm Password"
+            />
           </div>
-          <ConfirmPasswordInput
-            value={confirmPassword}
-            handleChange={(e) => setConfirmPassword(e.target.value)}
-          />
+
+          <Button theme="registration-button" type="submit">
+            Sign Up
+          </Button>
+          <div>
+            <Link to="/login" className="route-to-login">
+              Already have an account? Log in
+            </Link>
+          </div>
         </div>
-      </fieldset>
-      <Button
-        theme="registration-button"
-        type="submit"
-        className="account-registration-button"
-      >
-        Create Account
-      </Button>
-      <ul>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
-    </form>
+      </form>
+    </div>
   );
 };
 

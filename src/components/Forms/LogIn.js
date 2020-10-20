@@ -4,6 +4,7 @@ import PasswordInput from "./Inputs/PasswordInput";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
+import "./login.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -25,13 +26,11 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className="login-page">
       <form onSubmit={handleSubmit}>
-        <fieldset>
+        <div className="login-flex-container">
+          <h1 className="login-header">Log in to Trello Clone</h1>
           <div className="form-group">
-            <div>
-              <label htmlFor="login-email">Email</label>
-            </div>
             <EmailInput
               value={email}
               handleChange={(e) => setEmail(e.target.value)}
@@ -40,23 +39,21 @@ const LoginForm = () => {
           </div>
 
           <div className="form-group">
-            <div>
-              <label htmlFor="login-password">Password</label>
-            </div>
             <PasswordInput
               value={password}
               handleChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter password"
             />
           </div>
-        </fieldset>
-        <Button type="submit" theme="login-button">
-          Log in
-        </Button>
-        <ul>
-          <li>
-            <Link to="/register-account">Create account</Link>
-          </li>
-        </ul>
+
+          <Button type="submit" theme="login-button">
+            Log in
+          </Button>
+
+          <Link className="route-to-registration" to="/register-account">
+            Sign up for an account
+          </Link>
+        </div>
       </form>
     </div>
   );

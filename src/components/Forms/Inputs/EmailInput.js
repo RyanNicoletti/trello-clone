@@ -8,6 +8,8 @@ const EmailInput = ({ value, handleChange }) => {
       name="email"
       value={value}
       onChange={handleChange}
+      placeholder="Enter email"
+      className="email-input"
       required
     />
   );

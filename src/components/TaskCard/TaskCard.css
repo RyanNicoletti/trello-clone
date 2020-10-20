@@ -11,6 +11,9 @@
   font-size: 14px;
 }
 
+.card:hover {
+  background-color: #f3f5f7;
+}
 .delete-task-icon {
   position: absolute;
   top: 0;

@@ -1,0 +1,65 @@
+.registration-page {
+  height: calc(100vh - 45px);
+  background-color: #f9fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-flex-container {
+  display: flex;
+  flex-flow: wrap column;
+  align-items: center;
+  height: 453px;
+  width: 400px;
+  max-width: 585px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  padding: 25px 40px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+}
+
+.registration-header {
+  text-align: center;
+  color: #5e6c84;
+  font-size: 16px;
+  line-height: 28px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.email-input,
+.pw-input,
+.confirmpw-input {
+  width: 100%;
+  padding: 7px;
+  margin: 0px 0px 16.8px;
+  background: #fafbfc;
+  border: 2px solid #dfe1e6;
+  border-radius: 3px;
+  width: 320px;
+  height: 44px;
+}
+
+.btnregistration-button {
+  background: #e2e4e6;
+  color: rgb(116, 116, 116);
+  font-weight: bold;
+  padding: 8.4px 18.2px;
+  border: 0px;
+  border-radius: 3px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: none;
+  margin-bottom: 50px;
+  margin-top: 15px;
+}
+
+.route-to-login {
+  color: blue;
+  text-decoration: none;
+}
+
+.route-to-login:hover {
+  text-decoration: underline;
+}
