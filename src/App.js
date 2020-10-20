@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/LandingPage/LandingPage";
 import { Route, Switch } from "react-router-dom";
 import RegistrationForm from "./components/Forms/RegistrationForm";
 import LoginForm from "./components/Forms/LogIn";
@@ -9,7 +9,6 @@ import Header from "./components/Header/Header";
 import IdleService from "./services/idle-service";
 import TokenService from "./services/token-service";
 import authApiService from "./services/auth-api-service";
-import NotFoundPage from "./components/notfoundpage/NotFoundPage";
 
 const App = () => {
   const [boards, setBoards] = useState([]);
@@ -53,7 +52,6 @@ const App = () => {
         <Route path="/boardpage/:boardId">
           <BoardPage boards={boards} setBoards={setBoards} />
         </Route>
-        <Route exact path="/notfound" component={NotFoundPage} />
       </Switch>
     </div>
   );

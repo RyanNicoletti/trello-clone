@@ -22,11 +22,13 @@
 }
 
 .createacc:hover {
-  background-color: lightblue;
+  background-color: white;
+  color: #046aa7;
   border-radius: 5px;
 }
 
 .login:hover {
-  background-color: lightblue;
+  background-color: white;
+  color: #046aa7;
   border-radius: 5px;
 }
