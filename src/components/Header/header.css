@@ -1,3 +1,9 @@
+.login,
+.createacc,
+.logout {
+  padding: 5px;
+  font-size: 13px;
+}
 .header {
   background: #046aa7;
   color: #ffffff;
@@ -44,10 +50,6 @@
   margin-right: 10px;
   padding: 5px;
 }
-.login,
-.logout {
-  padding: 5px;
-}
 
 .createacc:hover {
   background-color: white;
@@ -65,4 +67,12 @@
   background-color: white;
   color: #046aa7;
   border-radius: 5px;
+}
+
+@media screen and (min-width: 1200px) {
+  .login,
+  .createacc,
+  .logout {
+    font-size: 16px;
+  }
 }

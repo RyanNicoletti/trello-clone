@@ -41,17 +41,19 @@ const HomePage = ({ setBoards, boards }) => {
             <p className="board-title">{board.title}</p>
           </Link>
         ))}
-        <form className="createBoardForm" onSubmit={createBoard}>
-          <label htmlFor="boardTitle">Board title</label>
+        <form className="create-board-form" onSubmit={createBoard}>
           <input
             required
+            placeholder="Add board title"
             name="title"
             type="text"
-            id="boardTitle"
+            id="board-title"
             value={title}
             onChange={(e) => setBoardTitle(e.target.value)}
           ></input>
-          <button type="submit">Create new board</button>
+          <button className="add-board-btn" type="submit">
+            Create new board
+          </button>
         </form>
       </div>
 
