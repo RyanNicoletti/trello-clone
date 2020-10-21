@@ -22,14 +22,18 @@ const boardApiService = {
     }
   },
   async getAllBoards() {
-    const res = await fetch(`${config.API_ENDPOINT}/boards`, {
-      headers: {
-        authorization: `bearer ${TokenService.getAuthToken()}`,
-      },
-    });
-    return !res.ok
-      ? res.json().then((e) => Promise.reject(e))
-      : res.json();
+    try {
+      const res = await fetch(`${config.API_ENDPOINT}/boards`, {
+        headers: {
+          authorization: `bearer ${TokenService.getAuthToken()}`,
+        },
+      });
+      return !res.ok
+        ? res.json().then((e) => Promise.reject(e))
+        : res.json();
+    } catch (error) {
+      console.log(error);
+    }
   },
   async deleteBoard(boardId) {
     try {
