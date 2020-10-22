@@ -7,24 +7,23 @@ import { Link } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
 import "./registrationform.css";
 
-const RegistrationForm = (props) => {
+const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = { email: email, password: password };
-    authApiService
-      .postUser(user)
-      .then((res) => {
-        window.location = "/homepage";
-      })
-      .catch((res) => {
-        setErrorMessage({ errorMessage: res.error });
-      });
-  }
+    try {
+      const user = { email: email, password: password };
+      const res = await authApiService.postUser(user);
+      window.location = "/homepage";
+      console.log(res);
+    } catch (res) {
+      return setErrorMessage({ errorMessage: res.error });
+    }
+  };
 
   return (
     <div className="registration-page">

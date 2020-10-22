@@ -15,19 +15,23 @@ const taskApiService = {
       const task = await res.json();
       return task;
     } catch (err) {
-      console.log(err);
+      console.log(err, "error posting task");
     }
   },
   async getAllTasks(listId) {
-    const res = await fetch(
-      `${config.API_ENDPOINT}/tasks?listid=${listId}`,
-      {
-        headers: {
-          authorization: `bearer ${TokenService.getAuthToken()}`,
-        },
-      }
-    );
-    return res.json();
+    try {
+      const res = await fetch(
+        `${config.API_ENDPOINT}/tasks?listid=${listId}`,
+        {
+          headers: {
+            authorization: `bearer ${TokenService.getAuthToken()}`,
+          },
+        }
+      );
+      return res.json();
+    } catch (error) {
+      console.log(error, "error fetching tasks");
+    }
   },
   async deleteTask(taskId) {
     try {

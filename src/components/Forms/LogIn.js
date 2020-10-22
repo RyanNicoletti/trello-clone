@@ -11,18 +11,16 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const res = await authApiService.userLogin({ email, password });
+      window.location = "/homepage";
 
-    authApiService
-      .userLogin({ email, password })
-      .then((res) => {
-        window.location = "/homepage";
-        console.log(res);
-      })
-      .catch((res) => {
-        return setErrorMessage({ errorMessage: res.error });
-      });
+      console.log(res.status);
+    } catch (res) {
+      return setErrorMessage({ errorMessage: res.error });
+    }
   };
 
   return (
