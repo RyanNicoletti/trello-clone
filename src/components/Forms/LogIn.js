@@ -16,7 +16,8 @@ const LoginForm = () => {
     try {
       const res = await authApiService.userLogin({ email, password });
       window.location = "/homepage";
-      console.log(res);
+
+      console.log(res.status);
     } catch (res) {
       return setErrorMessage({ errorMessage: res.error });
     }
