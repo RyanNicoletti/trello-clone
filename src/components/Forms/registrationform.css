@@ -11,6 +11,7 @@
   flex-flow: wrap column;
   align-items: center;
   height: 453px;
+  max-height: 550px;
   width: 400px;
   max-width: 585px;
   background-color: #ffffff;
@@ -58,6 +59,8 @@
 .route-to-login {
   color: blue;
   text-decoration: none;
+  position: absolute;
+  right: 38.3%;
 }
 
 .route-to-login:hover {
