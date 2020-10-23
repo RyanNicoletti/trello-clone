@@ -16,7 +16,11 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = { email: email, password: password };
+      const user = {
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
+      };
       const res = await authApiService.postUser(user);
       window.location = "/homepage";
       console.log(res);
@@ -38,9 +42,8 @@ const RegistrationForm = () => {
               }}
               placeHolder="Enter email"
             />
-            <div>{error && <span>{error.errorMessage}</span>}</div>
           </div>
-
+          <div>{error && <span>{error.errorMessage}</span>}</div>
           <div className="form-group">
             <PasswordInput
               value={password}
