@@ -1,9 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .hero {
   background: linear-gradient(135deg, #0079bf, #5067c5);
   height: calc(100vh - 45px);
@@ -93,4 +87,54 @@
 
 .btnsign-up:hover {
   background-color: #51a73f;
+}
+
+@media screen and (max-width: 1142px) {
+  .landing-flex-wrapper {
+    flex-direction: column;
+    align-content: center;
+    margin-top: -1px;
+  }
+
+  @media screen and (max-width: 766px) {
+    .hero {
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 650px) {
+    .landing-page-header {
+      font-size: 38px;
+    }
+    .landing-page-text {
+      font-size: 22px;
+    }
+  }
+  @media screen and (max-width: 415px) {
+    .landing-flex-wrapper {
+      align-items: center;
+    }
+    .landing-page-header {
+      font-size: 22px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .landing-page-text {
+      font-size: 18px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .landing-page-image {
+      max-width: 300px;
+      margin-bottom: -60px;
+    }
+    .btnlog-in,
+    .btnsign-up {
+      margin-left: 10px;
+      font-size: 15px;
+      padding: 11px 30px;
+      width: 120px;
+    }
+  }
 }
