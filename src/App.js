@@ -13,11 +13,14 @@ import authApiService from "./services/auth-api-service";
 const App = () => {
   const [boards, setBoards] = useState([]);
 
+  // if user goes idle, remove auth token, log user out, and clear call backs to monitor if user is idle or not
   const logIdleUserOut = () => {
     TokenService.clearAuthToken();
     TokenService.clearCallback();
     IdleService.clearCallbackEvents();
   };
+
+  // when user is logged in, monitor whether or not user is idle, if idle log user out
   useEffect(() => {
     IdleService.setIdleCallback(logIdleUserOut);
     if (TokenService.hasAuthToken()) {
@@ -26,7 +29,7 @@ const App = () => {
         authApiService.postRefreshToken();
       });
     }
-    // cleanup when app unmounts-stop event listeners that auto logout user and remove refresh endpoint request
+    // cleanup when app unmounts-stop event listeners that auto logout user if idle and remove refresh endpoint request
     return function clearEventListenersAndCallBack() {
       IdleService.clearCallbackEvents();
       TokenService.clearCallback();

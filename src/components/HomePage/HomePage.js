@@ -7,6 +7,7 @@ const HomePage = ({ setBoards, boards }) => {
   const [title, setBoardTitle] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });
 
+  // fetch all boards based on logged in users' id
   useEffect(() => {
     async function fetchBoardsByUserId() {
       const usersboards = await boardApiService.getAllBoards();

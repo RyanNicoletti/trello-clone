@@ -14,8 +14,6 @@ const IdleService = {
     userIdleCallback = idleCallback;
   },
   resetIdleTimer(e) {
-    // console.info("event:", e.type);
-    // console.log(timeoutId);
     clearTimeout(timeoutId);
     timeoutId = setTimeout(userIdleCallback, fiveMinutes);
   },

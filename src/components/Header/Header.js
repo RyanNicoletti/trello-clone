@@ -44,6 +44,7 @@ const Header = () => {
     );
   };
 
+  // conditionally render log in or log out button based on whether user has an auth token
   return (
     <nav className="header">
       {TokenService.hasAuthToken()

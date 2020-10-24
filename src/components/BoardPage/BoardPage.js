@@ -11,8 +11,10 @@ const BoardPage = ({ setBoards, boards }) => {
   const [lists, setLists] = useState([]);
   const [error, setErrorMessage] = useState({ errorMessage: null });
 
+  // find board by matching board id in the database to board id in params
   const board = boards.find((board) => board.id + "" === boardId);
 
+  // fetch all lists based on the boards id
   useEffect(() => {
     async function fetchListsByBoardId() {
       const taskLists = await listApiService.getAllLists(boardId);
@@ -21,6 +23,7 @@ const BoardPage = ({ setBoards, boards }) => {
     fetchListsByBoardId();
   }, [boardId]);
 
+  // fetch all boards based on users ID and update state to equal the logged in users boards
   useEffect(() => {
     async function fetchBoardsByUserId() {
       const usersboards = await boardApiService.getAllBoards();
@@ -30,6 +33,7 @@ const BoardPage = ({ setBoards, boards }) => {
     fetchBoardsByUserId();
   }, [setBoards]);
 
+  // send post request to the server to create new list and add the new list to UI
   const createNewList = (e) => {
     e.preventDefault();
     listApiService
@@ -43,6 +47,7 @@ const BoardPage = ({ setBoards, boards }) => {
       });
   };
 
+  // send delete request to server to delete board based on this boards id
   const deleteBoard = () => {
     const currentBoards = boards;
     boardApiService.deleteBoard(boardId).then((res) => {
@@ -54,6 +59,7 @@ const BoardPage = ({ setBoards, boards }) => {
     });
   };
 
+  // render lists on board page
   const renderLists = () => {
     return lists.map((list) => (
       <TaskList

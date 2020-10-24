@@ -12,6 +12,7 @@ const TaskList = (props) => {
   const [tasks, setTasks] = useState([]);
   const [error, setErrorMessage] = useState({ errorMessage: null });
 
+  // fetch all tasks based on the list id
   useEffect(() => {
     const fetchTasks = async (listId) => {
       const res = await taskApiService.getAllTasks(listId);
