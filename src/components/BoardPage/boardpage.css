@@ -1,5 +1,9 @@
 .boardpage {
   background-color: rgb(0, 121, 191);
+  height: calc(100vh - 45px);
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .board-header {
@@ -29,8 +33,4 @@
   grid-auto-columns: 272px;
   grid-auto-flow: column;
   grid-gap: 8px;
-  overflow: scroll;
-  overflow-y: hidden;
-  overflow-x: auto;
-  height: 91.3vh;
 }
