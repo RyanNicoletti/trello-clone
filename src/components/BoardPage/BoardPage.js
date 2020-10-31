@@ -55,6 +55,7 @@ const BoardPage = ({ setBoards, boards }) => {
         (board) => board.id !== boardId
       );
       setBoards(boardsAfterDelete);
+      
       return res;
     });
   };
