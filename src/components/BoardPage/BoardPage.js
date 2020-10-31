@@ -53,8 +53,8 @@ const BoardPage = ({ setBoards, boards }) => {
     const res = await boardApiService.deleteBoard(boardId)
     const boardsAfterDelete = currentBoards.filter(
       (board) => board.id !== boardId);
-      setBoards(boardsAfterDelete);
-      return res;
+      window.location='/homepage'
+      return setBoards(boardsAfterDelete);
     };
 
   // render lists on board page
@@ -72,11 +72,9 @@ const BoardPage = ({ setBoards, boards }) => {
   return (
     <div className="boardpage">
       <div className="board-header">{board?.title}</div>
-      <Link onClick={deleteBoard} to="/homepage">
-        <div className="delete-board">
+        <div className="delete-board" onClick={deleteBoard}>
           Delete board
         </div>
-      </Link>
 
       <div>{error && <span>{error.errorMessage}</span>}</div>
       <div className="board-lists">
