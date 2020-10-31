@@ -4,9 +4,9 @@ A simple clone of Trello created with React and plain CSS. This app is connected
 
 ## Project Screen Shots
 
-<img src="images/trellocloneimg1.jpg" alt='home page' width=400>
+<img src="images/landing.jpg" alt='home page' width=400 height=300>
 
-<img src="images/trellocloneimg2.jpg" alt='main board page' width=400>
+<img src="images/boardpage.jpg" alt='main board page' width=400 height=300>
 
 ## Installation and Setup Instructions
 
