@@ -48,17 +48,14 @@ const BoardPage = ({ setBoards, boards }) => {
   };
 
   // send delete request to server to delete board based on this boards id
-  const deleteBoard = () => {
+  const deleteBoard = async () => {
     const currentBoards = boards;
-    boardApiService.deleteBoard(boardId).then((res) => {
-      const boardsAfterDelete = currentBoards.filter(
-        (board) => board.id !== boardId
-      );
+    const res = await boardApiService.deleteBoard(boardId)
+    const boardsAfterDelete = currentBoards.filter(
+      (board) => board.id !== boardId);
       setBoards(boardsAfterDelete);
-      
       return res;
-    });
-  };
+    };
 
   // render lists on board page
   const renderLists = () => {
@@ -75,8 +72,8 @@ const BoardPage = ({ setBoards, boards }) => {
   return (
     <div className="boardpage">
       <div className="board-header">{board?.title}</div>
-      <Link to="/homepage">
-        <div className="delete-board" onClick={deleteBoard}>
+      <Link onClick={deleteBoard} to="/homepage">
+        <div className="delete-board">
           Delete board
         </div>
       </Link>
