@@ -35,3 +35,7 @@
 .add-card:hover {
   background-color: #dcdee2;
 }
+
+.add-card-button {
+  cursor: pointer;
+}

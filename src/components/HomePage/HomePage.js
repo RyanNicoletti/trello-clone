@@ -58,7 +58,11 @@ const HomePage = ({ setBoards, boards }) => {
         </form>
       </div>
 
-      <div>{error && <span>{error.errorMessage}</span>}</div>
+      <div className="error-message-wrapper">
+        {error && (
+          <span className="error-message">{error.errorMessage}</span>
+        )}
+      </div>
     </div>
   );
 };

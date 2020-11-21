@@ -63,6 +63,21 @@
   font-size: 14px;
   font-weight: 400;
   color: #fff;
+  cursor: pointer;
+}
+
+.error-message-wrapper {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  padding-top: 90px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bolder;
 }
 
 @media screen and (min-width: 1200px) {

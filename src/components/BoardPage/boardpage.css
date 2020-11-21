@@ -34,3 +34,7 @@
   grid-auto-flow: column;
   grid-gap: 8px;
 }
+
+.add-list-button {
+  cursor: pointer;
+}

@@ -86,7 +86,9 @@ const TaskList = (props) => {
             onChange={(e) => setTaskTitle(e.target.value)}
             requiredplaceholder="Enter a title for this card..."
           ></input>
-          <button type="submit">Add Card</button>
+          <button className="add-card-button" type="submit">
+            Add Card
+          </button>
           <span>
             <ClearIcon
               className="hide-input"

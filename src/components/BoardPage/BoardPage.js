@@ -50,12 +50,13 @@ const BoardPage = ({ setBoards, boards }) => {
   // send delete request to server to delete board based on this boards id
   const deleteBoard = async () => {
     const currentBoards = boards;
-    const res = await boardApiService.deleteBoard(boardId)
+    const res = await boardApiService.deleteBoard(boardId);
     const boardsAfterDelete = currentBoards.filter(
-      (board) => board.id !== boardId);
-      window.location='/homepage'
-      return setBoards(boardsAfterDelete);
-    };
+      (board) => board.id !== boardId
+    );
+    window.location = "/homepage";
+    return setBoards(boardsAfterDelete);
+  };
 
   // render lists on board page
   const renderLists = () => {
@@ -72,9 +73,9 @@ const BoardPage = ({ setBoards, boards }) => {
   return (
     <div className="boardpage">
       <div className="board-header">{board?.title}</div>
-        <div className="delete-board" onClick={deleteBoard}>
-          Delete board
-        </div>
+      <div className="delete-board" onClick={deleteBoard}>
+        Delete board
+      </div>
 
       <div>{error && <span>{error.errorMessage}</span>}</div>
       <div className="board-lists">
@@ -90,7 +91,9 @@ const BoardPage = ({ setBoards, boards }) => {
             autoComplete="off"
             placeholder="Enter list title..."
           ></input>
-          <button type="submit">Add a list</button>
+          <button className="add-list-button" type="submit">
+            Add a list
+          </button>
         </form>
       </div>
     </div>
