@@ -3,10 +3,16 @@ import listApiService from "../../services/list-api-service";
 import "./boardpage.css";
 import TaskList from "../TaskList/TaskList";
 import boardApiService from "../../services/board-api-service";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import fetchBoards, {
+  fetchBoardsSuccess,
+} from "../../redux/boards/boards.actions";
 
-const BoardPage = ({ setBoards, boards }) => {
+const BoardPage = () => {
   const { boardId } = useParams();
+  const boards = useSelector((state) => state.usersBoards.boards);
+  const dispatch = useDispatch();
   const [listTitle, setListName] = useState("");
   const [lists, setLists] = useState([]);
   const [error, setErrorMessage] = useState({ errorMessage: null });
@@ -25,13 +31,8 @@ const BoardPage = ({ setBoards, boards }) => {
 
   // fetch all boards based on users ID and update state to equal the logged in users boards
   useEffect(() => {
-    async function fetchBoardsByUserId() {
-      const usersboards = await boardApiService.getAllBoards();
-
-      setBoards(usersboards);
-    }
-    fetchBoardsByUserId();
-  }, [setBoards]);
+    dispatch(fetchBoards());
+  }, [dispatch]);
 
   // send post request to the server to create new list and add the new list to UI
   const createNewList = (e) => {
@@ -55,7 +56,7 @@ const BoardPage = ({ setBoards, boards }) => {
       (board) => board.id !== boardId
     );
     window.location = "/homepage";
-    return setBoards(boardsAfterDelete);
+    return fetchBoardsSuccess(boardsAfterDelete);
   };
 
   // render lists on board page

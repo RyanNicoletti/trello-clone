@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import LandingPage from "./components/LandingPage/LandingPage";
 import { Route, Switch } from "react-router-dom";
 import RegistrationForm from "./components/Forms/RegistrationForm";
@@ -11,8 +11,6 @@ import TokenService from "./services/token-service";
 import authApiService from "./services/auth-api-service";
 
 const App = () => {
-  const [boards, setBoards] = useState([]);
-
   // if user goes idle, remove auth token, log user out, and clear call backs to monitor if user is idle or not
   const logIdleUserOut = () => {
     TokenService.clearAuthToken();
@@ -50,10 +48,10 @@ const App = () => {
         />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/homepage">
-          <HomePage boards={boards} setBoards={setBoards} />
+          <HomePage />
         </Route>
         <Route path="/boardpage/:boardId">
-          <BoardPage boards={boards} setBoards={setBoards} />
+          <BoardPage />
         </Route>
       </Switch>
     </div>
