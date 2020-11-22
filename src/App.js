@@ -47,12 +47,8 @@ const App = () => {
           component={RegistrationForm}
         />
         <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/homepage">
-          <HomePage />
-        </Route>
-        <Route path="/boardpage/:boardId">
-          <BoardPage />
-        </Route>
+        <Route exact path="/homepage" component={HomePage} />
+        <Route path="/boardpage/:boardId" component={BoardPage} />
       </Switch>
     </div>
   );
