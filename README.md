@@ -1,6 +1,12 @@
 # Trello Clone
 
-A simple clone of Trello created with React and plain CSS. This app is connected to an API created with Nodejs/Express and a postgreSQL database.
+Front-end of a single page Kanban style web application (SPA) similar to Trello.
+
+## Technologies used 
+
+• React, CSS, Redux/redux-thunk and React Hooks for state management, React Router, and authorization with JWT's.
+
+• The app is connected to an API (`https://github.com/RyanNicoletti/trello-clone-api`) that was built with Node.js, Express, and         PostgreSQL.
 
 ## Project Screen Shots
 
