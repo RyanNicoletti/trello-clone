@@ -46,6 +46,8 @@
   background: #5aac44;
   color: #fff;
   font-weight: bold;
+  font-size: inherit;
+
   padding: 8.4px 18.2px;
   border: 0px;
   border-radius: 3px;
