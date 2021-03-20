@@ -8,7 +8,7 @@ const boardApiService = {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${TokenService.getAuthToken()}`,
+          authorization: `bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify({
           title,
