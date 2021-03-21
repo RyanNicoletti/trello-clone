@@ -31,7 +31,6 @@ const authApiService = {
   },
   async userLogin({ email, password }) {
     try {
-      console.log("ayyyyyy");
       const res = await fetch(`${config.API_ENDPOINT}/auth/login`, {
         method: "POST",
         headers: {
