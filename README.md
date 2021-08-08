@@ -30,7 +30,7 @@ To Visit the Live App:
 
 [Click to view](https://trello-clone-mu.vercel.app)
 
-To try out the app, use the following log in credentials if you prefer not to use your own email address:
+To try out the app, use the following log in credentials if you prefer not to use your own email address: <br />
 Email: testingtrelloclone@trello.com
 Password: Testing!123
 
