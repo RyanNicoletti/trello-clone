@@ -28,7 +28,7 @@ To Start Server:
 
 To Visit the Live App:
 
-`https://trello-clone-mu.vercel.app/`
+[Click to view](https://trello-clone-mu.vercel.app)
 
 To try out the app, use the following log in credentials if you prefer not to use your own email address:
 Email: testingtrelloclone@trello.com
