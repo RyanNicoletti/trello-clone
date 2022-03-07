@@ -40,11 +40,11 @@ const App = () => {
         <Header />
       </header>
       <Routes>
-        <Route path="/" component={LandingPage} />
-        <Route path="/register-account" component={RegistrationForm} />
-        <Route path="/login" component={LoginForm} />
-        <Route path="/homepage" component={HomePage} />
-        <Route path="/boardpage/:boardId" component={BoardPage} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register-account" element={<RegistrationForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/boardpage/:boardId" element={<BoardPage />} />
       </Routes>
     </div>
   );
