@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import LandingPage from "./components/LandingPage/LandingPage";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import RegistrationForm from "./components/Forms/RegistrationForm";
 import LoginForm from "./components/Forms/LogIn";
 import HomePage from "./components/HomePage/HomePage";
