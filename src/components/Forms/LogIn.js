@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EmailInput from "./Inputs/EmailInput";
 import PasswordInput from "./Inputs/PasswordInput";
 import Button from "../Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
 import "./login.css";
 
@@ -10,12 +10,13 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await authApiService.userLogin({ email, password });
-      window.location = "/homepage";
+      navigate("/homepage");
 
       console.log(res.status);
     } catch (res) {
