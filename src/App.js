@@ -39,17 +39,13 @@ const App = () => {
       <header className="app-header">
         <Header />
       </header>
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route
-          exact
-          path="/register-account"
-          component={RegistrationForm}
-        />
-        <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/homepage" component={HomePage} />
+      <Routes>
+        <Route path="/" component={LandingPage} />
+        <Route path="/register-account" component={RegistrationForm} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/homepage" component={HomePage} />
         <Route path="/boardpage/:boardId" component={BoardPage} />
-      </Switch>
+      </Routes>
     </div>
   );
 };
