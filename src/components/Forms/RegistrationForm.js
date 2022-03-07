@@ -3,7 +3,7 @@ import EmailInput from "./Inputs/EmailInput";
 import PasswordInput from "./Inputs/PasswordInput";
 import Button from "../Button";
 import ConfirmPasswordInput from "./Inputs/ConfirmPasswordInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authApiService from "../../services/auth-api-service";
 import "./registrationform.css";
 
@@ -12,6 +12,7 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setErrorMessage] = useState({ errorMessage: null });
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,8 +23,7 @@ const RegistrationForm = () => {
         confirmPassword: confirmPassword,
       };
       const res = await authApiService.postUser(user);
-      window.location = "/homepage";
-      console.log(res);
+      navigate("/homepage");
     } catch (res) {
       return setErrorMessage({ errorMessage: res.error });
     }
