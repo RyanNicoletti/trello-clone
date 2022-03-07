@@ -6,7 +6,7 @@ Front-end of a single page Kanban style web application (SPA) similar to Trello.
 
 • React, CSS, Redux/redux-thunk and React Hooks for state management, React Router, and authorization with JWT's.
 
-• The app is connected to an API (`https://github.com/RyanNicoletti/trello-clone-api`) that was built with Node.js, Express, and         PostgreSQL.
+• The app is connected to an [API](https://github.com/RyanNicoletti/trello-clone-api) that I built with Node.js, Express, and         PostgreSQL.
 
 ## Project Screen Shots
 
@@ -28,10 +28,10 @@ To Start Server:
 
 To Visit the Live App:
 
-`https://trello-clone-mu.vercel.app/`
+[Click to view](https://trello-clone-mu.vercel.app)
 
-To try out the app, use the following log in credentials if you prefer not to use your own email address:
-Email: testingtrelloclone@trello.com
+To try out the app, use the following log in credentials if you prefer not to use your own email address: <br />
+Email: testingtrelloclone@trello.com <br />
 Password: Testing!123
 
 ## Reflection
